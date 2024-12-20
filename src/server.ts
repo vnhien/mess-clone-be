@@ -12,7 +12,7 @@ import { userRouter } from "./routes/user-route";
 // Create an Express application
 const app = express();
 // Set the port number for the server
-const port = process.env.DEFAULT_PORT || 3003;
+const port = process.env.PORT || 3003;
 
 //
 app.use(express.json({ limit: "5mb" }));
