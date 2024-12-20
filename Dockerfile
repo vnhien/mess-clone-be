@@ -33,4 +33,4 @@ RUN npm install
 EXPOSE 3000
 
 # Run the application.
-CMD PORT=3000 npm start
+CMD PORT=3000 npm run dev
