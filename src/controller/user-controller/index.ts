@@ -110,6 +110,18 @@ export async function addFriend(req: ExtendedRequest) {
     },
     { upsert: true }
   );
+  await FriendListModel.updateOne(
+    { id: friendId },
+    {
+      $addToSet: {
+        friends: {
+          id: userId,
+          name: user.userName,
+        },
+      },
+    },
+    { upsert: true }
+  );
   return { message: "Success" };
 }
 

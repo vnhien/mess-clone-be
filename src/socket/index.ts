@@ -11,8 +11,10 @@ export function initSockerServer(server: Server<typeof IncomingMessage, typeof S
   });
 
   ioServer.on("connection", (socket) => {
-    socket.on("chat", (msg) => {
-      console.log("🚀 ~ socket.compress ~ msg:", msg);
+    socket.on("chat", (msg: { content: string; to: string; from: string; roomId: string }) => {
+      console.log("🚀 ~ socket.on ~ socket:", socket.rooms);
+      // socket.in(msg.roomId).emit("chat", JSON.stringify(msg));
+      socket.emit("chat", JSON.stringify(msg));
     });
     socket.on("init-room", (msg: { roomId: string; targetId: string; userId: string }) => {
       console.log("🚀 ~ socket.on ~ msg:", msg);

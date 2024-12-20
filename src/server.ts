@@ -4,7 +4,6 @@ dotenv.config();
 import express from "express";
 import "./overide";
 import { authRouter } from "./routes/auth-route";
-import { Server } from "socket.io";
 import cors from "cors";
 import { initSockerServer } from "./socket";
 import { devRouter } from "./routes/dev";
